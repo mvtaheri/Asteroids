@@ -15,6 +15,12 @@ function love.keypressed(key)
     end
 end
 
+function love.keyreleased(key)
+    if key == "up" or key == "w" or key == "kp8" then
+        player.thrusting = true
+    end
+end
+
 function love.update()
     mouse_x,mouse_y = love.mouse.getPosition()
     player:movePlayer()
@@ -22,4 +28,6 @@ end
 
 function love.draw()
     player:draw()
+    love.graphics.setColor(1,1,1,1)
+    love.graphics.print(love.timer.getFPS(),10,10)
 end
